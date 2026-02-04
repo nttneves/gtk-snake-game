@@ -17,7 +17,9 @@ distinct and portfolio-ready arcade project.
 
 ## Gameplay Preview
 
-![Snake Tron Gameplay](assets/gameplay.gif)
+<p align="center">
+  <img src="assets/gameplay.gif" width="500">
+</p>
 
 ## About the Project
 

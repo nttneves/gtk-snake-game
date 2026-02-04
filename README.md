@@ -15,6 +15,9 @@ The game recreates the classic Snake mechanics while adding:
 The goal was not only to implement Snake, but to turn it into a visually  
 distinct and portfolio-ready arcade project.
 
+## Gameplay Preview
+
+![Snake Tron Gameplay](assets/gameplay.gif)
 
 ## About the Project
 

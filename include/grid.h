@@ -1,6 +1,8 @@
 #ifndef GRID_H
 #define GRID_H
 
+#include "snake.h"
+
 typedef struct{
   int width;
   int height;

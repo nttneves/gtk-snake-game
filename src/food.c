@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "grid.h"
-#include "snake.h"
+
 #include "food.h"
 
 void spawn_food(Food *f, Grid *g, Snake *s){

@@ -11,7 +11,7 @@ void move_snake(Snake *s, int key){
   s->snakeTailX[0] = s->x;
   s->snakeTailY[0] = s->y;
 
-  for(int i = 0; i < s->snakeTailLen; i++){
+  for (int i = 1; i < s->snakeTailLen; i++){
     prev2X = s->snakeTailX[i];
     prev2Y = s->snakeTailY[i];
     s->snakeTailX[i] = prevX;
@@ -20,45 +20,53 @@ void move_snake(Snake *s, int key){
     prevY = prev2Y;
   }
 
-  switch (key) {
-    case 1:
-        s->x--;
-        break;
-    case 2:
-        s->x++;
-        break;
-    case 3:
-        s->y--;
-        break;
-    case 4:
-        s->y++;
-        break;
-    default:
-        break;
+  switch (key){
+  case 1:
+    s->x--;
+    break;
+  case 2:
+    s->x++;
+    break;
+  case 3:
+    s->y--;
+    break;
+  case 4:
+    s->y++;
+    break;
+  default:
+    break;
   }
 }
 
 void grow_snake(Snake *s){
 
-  if(s->snakeTailLen < 100){
+  if (s->snakeTailLen >= 100)
+    return;
 
-    int lastX = s->snakeTailX[s->snakeTailLen - 1];
-    int lastY = s->snakeTailY[s->snakeTailLen - 1];
+  if (s->snakeTailLen == 0){
 
-    s->snakeTailX[s->snakeTailLen] = lastX;
-    s->snakeTailY[s->snakeTailLen] = lastY;
-
-    s->snakeTailLen++;
+    s->snakeTailX[0] = s->x;
+    s->snakeTailY[0] = s->y;
+    s->snakeTailLen = 1;
+    return;
   }
+
+  int lastX = s->snakeTailX[s->snakeTailLen - 1];
+  int lastY = s->snakeTailY[s->snakeTailLen - 1];
+
+  s->snakeTailX[s->snakeTailLen] = lastX;
+  s->snakeTailY[s->snakeTailLen] = lastY;
+
+  s->snakeTailLen++;
 }
 
 bool check_collision(Snake *s){
 
-  for(int k = 0; k < s->snakeTailLen; k++){
+  for (int k = 1; k < s->snakeTailLen; k++){
     if (s->x == s->snakeTailX[k] && s->y == s->snakeTailY[k]){
       return true;
     }
   }
 
   return false;
-} 
+}
